@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script type="text/javascript">
+var answer =[];
+answer[0]="b"
+answer[1]="f"
+answer[2]="h"
+answer[3]="j"
+answer[4]="o"
+answer[5]="q"		
+answer[6]="u"
+answer[7]="y"
+answer[8]="A"
+answer[9]="D"
+function test(form){
+	for(j=0;j<10;j++){
+		currQuestion=j*3;
+		for(i=0;i<=3;i++){
+			if(form.elements[i+currQuestion].checked){
+		    if(form.elements[i+currQuestion].value==answer[j]){
+		    	alert("correct your score is 1 out of 1 ");
+		    	break
+		    }
+		    else{
+		    	alert("Incorrect,the correct answer is"+answer[j]+"your score is 0 out of 1");
+		    }
+			}
+		}
+	}
+}
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+<form action="QuizIn" method="post">
+    <h1 align="center">Genral Quiz</h1>
+    <div class ="firstquestion" >
+    <p>1.what is our national bird ...?</p>
+    <input type = "radio" name = "Q1" onclick="test(this.form)" value="a">peahen<br>
+    <input type = "radio" name = "Q1" onclick="test(this.form)" value="b">peacock<br>
+    <input type = "radio" name = "Q1" onclick="test(this.form)" value="c">parrot<br>
+   </div>
+   <div class="secondQuestion">
+    <p>2.who is our first prime minister..?</p>
+    <input type ="radio" name="Q2" onclick="test(this.form)" value="d">bipin chandrapal<br>
+    <input type ="radio" name="Q2" onclick="test(this.form)" value="e">subhash chandrabose<br>
+    <input type ="radio" name="Q2" onclick="test(this.form)" value="f">jawaharlal nehru<br>
+    </div>
+    <div class="ThirdQuestion">
+    <p>3.which state is called as the ricebowl of india..?</p>
+    <input type ="radio" name="Q3" onclick="test(this.form)" value="g">Buvaneshwar<br>
+    <input type ="radio" name="Q3" onclick="test(this.form)" value="h">chattisghar<br>
+    <input type ="radio" name="Q3" onclick="test(this.form)" value="i">jaipur<br>
+    </div>
+    <div class="FourthQuestion">
+    <p>4.what is indian capital..?</p>
+    <input type ="radio" name="Q4" onclick="test(this.form)" value="j">Delhi<br>
+    <input type ="radio" name="Q4" onclick="test(this.form)" value="k">Hyderabad<br>
+    <input type ="radio" name="Q4" onclick="test(this.form)" value="l">Mumbai<br>
+    </div>
+    <div class="FifthQuestion">
+    <p>5.which state is the financial backbone of india..?</p>
+    <input type ="radio" name="Q5" onclick="test(this.form)" value="m">Uttar pradesh<br>
+    <input type ="radio" name="Q5" onclick="test(this.form)" value="n">Rajasthan<br>
+    <input type ="radio" name="Q5" onclick="test(this.form)" value="o">Mumbai<br>
+    </div>
+    <div class="SixthQuestion">
+    <p>2.what is the second language of india..?</p>
+    <input type ="radio" name="Q6" onclick="test(this.form)" value="p">Tamil<br>
+    <input type ="radio" name="Q6" onclick="test(this.form)" value="q">Hindhi<br>
+    <input type ="radio" name="Q6" onclick="test(this.form)" value="r">Telugu<br>
+    </div>
+    <div class="SeventhQuestion">
+    <p>2.who faught for freedom in peace way for india..?</p>
+    <input type ="radio" name="Q7" onclick="test(this.form)" value="s">savitri bai<br>
+    <input type ="radio" name="Q7" onclick="test(this.form)" value="t">subhash chandrabose<br>
+    <input type ="radio" name="Q7" onclick="test(this.form)" value="u">gandhiji<br>
+    </div>
+    <div class="EighthQuestion">
+    <p>when india got freedom..?</p>
+    <input type ="radio" name="Q8" onclick="test(this.form)" value="v">1990<br>
+    <input type ="radio" name="Q8" onclick="test(this.form)" value="x">1950<br>
+    <input type ="radio" name="Q8" onclick="test(this.form)" value="y">1947<br>
+    </div>
+    <div class="NinthQuestion">
+    <p>2.where tajmahal located in india..?</p>
+    <input type ="radio" name="Q9" onclick="test(this.form)" value="z">delhi<br>
+    <input type ="radio" name="Q9" onclick="test(this.form)" value="A">agra<br>
+    <input type ="radio" name="Q9" onclick="test(this.form)" value="B">kashmir<br>
+    </div>
+    <div class="TenthQuestion">
+    <p>2.who is Dr.ambedkar..?</p>
+    <input type ="radio" name="Q10" onclick="test(this.form)" value="C">politician<br>
+    <input type ="radio" name="Q10" onclick="test(this.form)" value="D">creator of indian constituition<br>
+    <input type ="radio" name="Q10" onclick="test(this.form)" value="E">governer<br>
+    </div>
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>

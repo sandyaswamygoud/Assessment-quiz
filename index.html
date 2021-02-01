@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+    var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+    var questions = [
+        ["What is 10 + 4?", "12", "14", "16", "B"],
+        ["What is 20 - 9?", "7", "13", "11", "C"],
+        ["What is 7 x 3?", "21", "24", "25", "A"],
+        ["What is 8 / 2?", "10", "2", "4", "C"]
+    ];
+    function _(x) {
+        return document.getElementById(x);
+    }
+    function renderQuestion() {
+        test = _("test");
+        if (pos >= questions.length) {
+            test.innerHTML = "<h2>You got " + correct + " of " + questions.length + " questions correct</h2>";
+            _("test_status").innerHTML = "Test Completed";
+            pos = 0;
+            correct = 0;
+            return false;
+        }
+        _("test_status").innerHTML = "Question " + (pos + 1) + " of " + questions.length;
+        question = questions[pos][0];
+        chA = questions[pos][1];
+        chB = questions[pos][2];
+        chC = questions[pos][3];
+        test.innerHTML = "<h3>" + question + "</h3>";
+        test.innerHTML += "<input  onclick='checkAnswer()'  type='radio' class='choice' name='choices' value='A'id='choA'> <label for='choA'>" + chA + "</label><br>";
+        test.innerHTML += "<input  onclick='checkAnswer()'  type='radio' class='choice' name='choices' value='B'id='choB'> <label for='choB'>" + chB + "</label><br>";
+        test.innerHTML += "<input  onclick='checkAnswer()'  type='radio' class='choice' name='choices' value='C'id='choC'> <label for='choC'>" + chC + "</label><br>";
+        test.innerHTML += "<button  onclick='nextAnswer()' disabled='disabled' id='choiceSubmit'>Submit Answer</button>";
+    }
+
+    function checkAnswer() {
+        choiceClicked = true;
+        $("#choiceSubmit").removeAttr("disabled");
+        $("#test label").css("background-color", "transparent");
+        if ($("#test input:checked").val() == questions[pos][4]) {
+            // correct question clicked
+            $("#test input:checked+label").css("background-color", "green");
+            correct++;
+        }
+        else {
+            // wrong question clicked
+            $("#test input:checked+label").css("background-color", "red");
+        }
+    }
+    function nextAnswer(){
+        setTimeout(function () {
+            pos++;
+            renderQuestion();
+        }, 1000);    
+    }
+    $("document").ready(function () {
+        renderQuestion();
+    });
+</script>
+</html>
